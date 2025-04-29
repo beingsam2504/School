@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>School Portal</title>
   <style>
     * {
@@ -27,6 +26,7 @@
       text-align: center;
       color: white;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      position: relative;
     }
 
     .header h1 {
@@ -46,19 +46,22 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      flex-direction: row;
+      flex-shrink: 0;
     }
 
-    .navbar a {
+    .navbar a, .dropdown {
       color: white;
       text-decoration: none;
       font-weight: bold;
       position: relative;
       font-size: 1rem;
-      padding: 5px;
+      padding: 5px 10px;
       transition: transform 0.3s ease-in-out;
+      cursor: pointer;
     }
 
-    .navbar a::after {
+    .navbar a::after, .dropdown::after {
       content: '';
       display: block;
       height: 2px;
@@ -70,12 +73,43 @@
       left: 0;
     }
 
-    .navbar a:hover::after {
+    .navbar a:hover::after, .dropdown:hover::after {
       width: 100%;
     }
 
-    .navbar a:hover {
+    .navbar a:hover, .dropdown:hover {
       transform: scale(1.1);
+    }
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: #004d40;
+      top: 30px;
+      left: 0;
+      padding: 10px;
+      min-width: 180px;
+      border-radius: 5px;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      color: white;
+      padding: 5px 0;
+      font-weight: normal;
+      font-size: 0.95rem;
+      transition: background 0.2s ease;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #00695c;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
     }
 
     .main-content {
@@ -102,7 +136,6 @@
       font-size: 0.9em;
     }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
       .main-content h2 {
         font-size: 1.5rem;
@@ -110,17 +143,19 @@
 
       .navbar {
         flex-direction: column;
-        gap: 10px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .header h1 {
-        font-size: 1.2rem;
+        align-items: center;
       }
 
-      .navbar a {
-        font-size: 0.9rem;
+      .dropdown-menu {
+        position: static;
+        width: 100%;
+        background-color: #00695c;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .dropdown-menu a {
+        text-align: center;
       }
     }
   </style>
@@ -130,6 +165,24 @@
     <h1>Greenwood International School</h1>
     <nav class="navbar">
       <a href="#">Home</a>
+      <div class="dropdown">
+        School Login
+        <div class="dropdown-menu">
+          <a href="#">Student & Staff Manual Attendance</a>
+          <a href="#">Fee Management</a>
+          <a href="#">Exams & Result Management</a>
+          <a href="#">Student Management</a>
+          <a href="#">Teacher Payment</a>
+          <a href="#">Teacher Leave</a>
+          <a href="#">School Holiday</a>
+          <a href="#">Fee Report</a>
+          <a href="#">Fee Due Report</a>
+          <a href="#">Online Admission</a>
+          <a href="#">Timetable Scheduling</a>
+          <a href="#">Transport Management</a>
+          <a href="#">Enquiry Management</a>
+        </div>
+      </div>
       <a href="#">Students</a>
       <a href="#">Teachers</a>
       <a href="#">Classes</a>
