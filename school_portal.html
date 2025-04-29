@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>School Portal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background-color: #00796b;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .header h1 {
+      margin-bottom: 10px;
+      animation: rotateText 8s linear infinite;
+      display: inline-block;
+    }
+
+    @keyframes rotateText {
+      0% { transform: rotateY(0deg); }
+      50% { transform: rotateY(180deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      font-size: 1rem;
+      padding: 5px;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0%;
+      background: white;
+      transition: width 0.3s ease-in-out;
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+    }
+
+    .navbar a:hover::after {
+      width: 100%;
+    }
+
+    .navbar a:hover {
+      transform: scale(1.1);
+    }
+
+    .main-content {
+      flex-grow: 1;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .main-content h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .main-content p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .footer {
+      background-color: #004d40;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .main-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .navbar {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header h1 {
+        font-size: 1.2rem;
+      }
+
+      .navbar a {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Greenwood International School</h1>
+    <nav class="navbar">
+      <a href="#">Home</a>
+      <a href="#">Students</a>
+      <a href="#">Teachers</a>
+      <a href="#">Classes</a>
+      <a href="#">Library</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main class="main-content">
+    <h2>Welcome to the School Portal</h2>
+    <p>This is a central hub for students, teachers, and parents.</p>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Greenwood International School. All rights reserved.</p>
+  </footer>
+</body>
+</html>
